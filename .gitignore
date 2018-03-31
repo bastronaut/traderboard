@@ -33,3 +33,4 @@ nbdist/
 .DS_Store
 /build
 /captures
+out/
