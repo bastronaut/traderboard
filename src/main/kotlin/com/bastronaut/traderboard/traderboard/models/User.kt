@@ -11,13 +11,13 @@ import javax.persistence.Id
  * @Entity param specifics that class is an entity
  * @Id specify the field as a primary key
  * @GeneratedValue defines the creation strategy
+ *
+ * Seems that, when no default values are added for arguments, it generates a hybris
+ * exception? org.hibernate.InstantiationException: No default constructor for entity: ..User
  */
 @Entity
-class User(private val name: String, val age: Int,
+class User(val name: String = "", val age: Int = 0,
            @Id @GeneratedValue(strategy = GenerationType.AUTO)
-           val id: Long = 2) {
-
-    fun getYo() = "yo"
-}
+           val id: Long = 0)
 
 
