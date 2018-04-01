@@ -1,10 +1,6 @@
-package com.bastronaut.traderboard.traderboard.models
+package com.bastronaut.traderboard.traderboard.entities
 
-import org.springframework.data.jpa.repository.JpaRepository
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 /**
  * Annotations info:
@@ -21,13 +17,14 @@ import javax.persistence.Id
  * class with @Entity (and some others?) annotation. Added kotlin-noarg to buildscript
  * dependencies and apply plugins
  *
+ * @param name
+ * @param can be ignored randomly generated
  */
 @Entity
-class User(val name: String, val age: Int,
+@Table(uniqueConstraints = [UniqueConstraint(columnNames = ["username"])])
+class User(val username: String,
            @Id @GeneratedValue(strategy = GenerationType.AUTO)
            val id: Long = 0) {
-
-
 
 }
 
