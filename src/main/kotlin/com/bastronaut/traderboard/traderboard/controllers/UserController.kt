@@ -10,38 +10,63 @@ import org.springframework.web.bind.annotation.*
 
 /**
  * Annotations:
- * @RequestMapping maps web requests to Spring Controller methods
+ * @RequestMapping maps web requests to Spring Controller methods. All requests come in to /users in this case
+ *
+ * Query creation mechanism for JPA, can use keywords as described in table:
+ * https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
+ *
+ *
  */
 @RestController
 @RequestMapping("/users")
 class UserController(val userService: UserService) {
 
+    /*
+    Start GET methods
+     */
+
     /**
-     * listens to /users/all
+     * Gets all users
      * @GetMapping is a shortcut for @RequestMapping(method=RequestMethod.GET)
      */
     @GetMapping(value = "")
     fun getUsers() : List<User>  = userService.findAll()
 
-
     @GetMapping(value = "/{username}")
-    fun getUserByUsername(@PathVariable username: String): List<User > {
-//        userRepository.findByUserUsername(username)
-    }
-
-
-    @PostMapping(value="/{username}")
-    fun insertUser(@PathVariable username: String): List<User> {
-        return userService.insertUser(username)
-    }
-
-    fun testUser(@RequestBody user: User) {
-        val x = user.username
-        print(x)
+    fun getUserByUsername(@PathVariable username: String): User? {
+        return userService.findByUserName(username)
     }
 
     @GetMapping(value = "/reset")
     fun resetUsers() {
         userService.resetUsers()
     }
+
+    @GetMapping("/testa/{a}")
+    fun testA(@PathVariable a: String): List<User> {
+        return userService.testa("bas")
+    }
+
+    @GetMapping("/testb/{a}")
+    fun testB(@PathVariable a: String): User? {
+        return userService.testb(a)
+    }
+
+    @GetMapping("/testc")
+    fun testC(@PathVariable a: String): List<User> {
+        return userService.testc()
+    }
+    /*
+    Start POST methods
+     */
+
+    @PostMapping(value="/{username}")
+    fun insertUser(@PathVariable username: String): User? {
+        return userService.insertUser(username)
+    }
+
+    fun testUser(@RequestBody user: User) {
+//        userService.findByUserName()
+    }
+
 }

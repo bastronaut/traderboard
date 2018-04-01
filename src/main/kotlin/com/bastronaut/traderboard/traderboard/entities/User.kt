@@ -21,7 +21,7 @@ import javax.persistence.*
  * @param can be ignored randomly generated
  */
 @Entity
-@Table(uniqueConstraints = [UniqueConstraint(columnNames = ["username"])])
+@Table(name = "Users", uniqueConstraints = [UniqueConstraint(columnNames = ["username"])])
 class User(val username: String,
            @Id @GeneratedValue(strategy = GenerationType.AUTO)
            val id: Long = 0) {

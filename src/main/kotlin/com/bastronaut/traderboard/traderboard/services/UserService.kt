@@ -10,12 +10,29 @@ class UserService(private var userRepository: UserRepository) {
 
     fun findAll() = userRepository.findAll()
 
-    fun insertUser(username: String) : List<User> {
+    fun insertUser(username: String) : User? {
         val user = User(username)
         userRepository.save(user)
-        return userRepository.findAll()
+        return userRepository.findByUsername(username)
     }
 
     fun resetUsers() = initUsers(userRepository)
+
+    fun findByUserName(username: String) : User? {
+        return userRepository.findByUsername(username)
+    }
+
+    fun testa(a: String) : List<User> {
+        return userRepository.findUserCustomQuery(a)
+    }
+
+    fun testb(a: String) : User? {
+        return userRepository.findUserCustomNamedQuery(a)
+    }
+
+    fun testc() : List<User> {
+        return userRepository.findUserCustomNativeQuery()
+    }
+
 
 }
