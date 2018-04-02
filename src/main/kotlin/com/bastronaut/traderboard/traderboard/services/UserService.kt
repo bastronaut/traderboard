@@ -13,13 +13,13 @@ class UserService(private var userRepository: UserRepository) {
     fun insertUser(username: String) : User? {
         val user = User(username)
         userRepository.save(user)
-        return userRepository.findByUsername(username)
+        return user
     }
 
     fun resetUsers() = initUsers(userRepository)
 
     fun findByUserName(username: String) : User? {
-        return userRepository.findByUsername(username)
+        return userRepository.findByUsername(username) ?: throw UserNotFoundException()
     }
 
     fun testa(a: String) : List<User> {
@@ -36,3 +36,6 @@ class UserService(private var userRepository: UserRepository) {
 
 
 }
+
+
+class UserNotFoundException : Throwable()

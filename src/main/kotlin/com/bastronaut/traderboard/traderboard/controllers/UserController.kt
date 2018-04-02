@@ -34,7 +34,7 @@ class UserController(val userService: UserService) {
 
     @GetMapping(value = "/{username}")
     fun getUserByUsername(@PathVariable username: String): User? {
-        return userService.findByUserName(username)
+        return userService.findByUserName(username) ?: return null
     }
 
     @GetMapping(value = "/reset")
@@ -42,20 +42,7 @@ class UserController(val userService: UserService) {
         userService.resetUsers()
     }
 
-    @GetMapping("/testa/{a}")
-    fun testA(@PathVariable a: String): List<User> {
-        return userService.testa("bas")
-    }
 
-    @GetMapping("/testb/{a}")
-    fun testB(@PathVariable a: String): User? {
-        return userService.testb(a)
-    }
-
-    @GetMapping("/testc")
-    fun testC(@PathVariable a: String): List<User> {
-        return userService.testc()
-    }
     /*
     Start POST methods
      */
@@ -65,8 +52,6 @@ class UserController(val userService: UserService) {
         return userService.insertUser(username)
     }
 
-    fun testUser(@RequestBody user: User) {
-//        userService.findByUserName()
-    }
+
 
 }
