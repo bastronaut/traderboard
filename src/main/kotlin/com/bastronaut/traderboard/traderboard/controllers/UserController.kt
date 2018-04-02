@@ -1,12 +1,10 @@
 package com.bastronaut.traderboard.traderboard.controllers
 
-import com.bastronaut.traderboard.traderboard.entities.User
-import com.bastronaut.traderboard.traderboard.init.initUsers
-import com.bastronaut.traderboard.traderboard.repository.UserRepository
+import com.bastronaut.traderboard.traderboard.models.User
+import com.bastronaut.traderboard.traderboard.models.inout.RegisterUser
 import com.bastronaut.traderboard.traderboard.services.UserService
-import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.jpa.repository.Query
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 /**
  * Annotations:
@@ -18,12 +16,8 @@ import org.springframework.web.bind.annotation.*
  *
  */
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 class UserController(val userService: UserService) {
-
-    /*
-    Start GET methods
-     */
 
     /**
      * Gets all users
@@ -43,13 +37,20 @@ class UserController(val userService: UserService) {
     }
 
 
-    /*
-    Start POST methods
+    /**
+     * The @Valid annotation does
+     * The @RequestBody annotation binds the method param to the body of the web request
      */
-
-    @PostMapping(value="/{username}")
-    fun insertUser(@PathVariable username: String): User? {
-        return userService.insertUser(username)
+    @PostMapping(value="")
+    fun insertUser(@Valid @RequestBody registerUser: RegisterUser): User? {
+        print(registerUser)
+        val username = registerUser.username
+        return if (username == null) {
+            print("wot")
+            null
+        } else {
+            userService.insertUser(username)
+        }
     }
 
 

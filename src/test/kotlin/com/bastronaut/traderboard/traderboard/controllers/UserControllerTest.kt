@@ -1,6 +1,6 @@
 package com.bastronaut.traderboard.traderboard.controllers
 
-import com.bastronaut.traderboard.traderboard.entities.User
+import com.bastronaut.traderboard.traderboard.models.User
 import com.bastronaut.traderboard.traderboard.services.UserService
 import org.junit.Test
 import org.junit.runner.RunWith

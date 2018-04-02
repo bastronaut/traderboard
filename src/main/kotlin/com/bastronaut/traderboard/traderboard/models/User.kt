@@ -1,5 +1,6 @@
-package com.bastronaut.traderboard.traderboard.entities
+package com.bastronaut.traderboard.traderboard.models
 
+import com.fasterxml.jackson.annotation.JsonRootName
 import javax.persistence.*
 
 /**
@@ -20,6 +21,7 @@ import javax.persistence.*
  * @param name
  * @param can be ignored randomly generated
  */
+@JsonRootName("user")
 @Entity
 @Table(name = "Users", uniqueConstraints = [UniqueConstraint(columnNames = ["username"])])
 class User(val username: String,

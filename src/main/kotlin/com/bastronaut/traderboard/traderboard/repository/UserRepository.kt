@@ -1,6 +1,6 @@
 package com.bastronaut.traderboard.traderboard.repository
 
-import com.bastronaut.traderboard.traderboard.entities.User
+import com.bastronaut.traderboard.traderboard.models.User
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param

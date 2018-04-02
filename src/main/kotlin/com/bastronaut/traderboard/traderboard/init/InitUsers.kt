@@ -1,6 +1,6 @@
 package com.bastronaut.traderboard.traderboard.init
 
-import com.bastronaut.traderboard.traderboard.entities.User
+import com.bastronaut.traderboard.traderboard.models.User
 import com.bastronaut.traderboard.traderboard.repository.UserRepository
 
 /**
