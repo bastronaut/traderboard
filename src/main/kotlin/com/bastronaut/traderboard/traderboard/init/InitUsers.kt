@@ -1,7 +1,7 @@
 package com.bastronaut.traderboard.traderboard.init
 
 import com.bastronaut.traderboard.traderboard.models.User
-import com.bastronaut.traderboard.traderboard.repository.UserRepository
+import com.bastronaut.traderboard.traderboard.repositories.UserRepository
 
 /**
  * File level (no class spec), automatically generates class and makes methods static.

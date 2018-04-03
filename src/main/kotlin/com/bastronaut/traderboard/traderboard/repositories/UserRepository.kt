@@ -1,4 +1,4 @@
-package com.bastronaut.traderboard.traderboard.repository
+package com.bastronaut.traderboard.traderboard.repositories
 
 import com.bastronaut.traderboard.traderboard.models.User
 import org.springframework.data.jpa.repository.JpaRepository

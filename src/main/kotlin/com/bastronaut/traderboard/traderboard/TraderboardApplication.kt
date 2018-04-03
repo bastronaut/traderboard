@@ -1,7 +1,7 @@
 package com.bastronaut.traderboard.traderboard
 
 import com.bastronaut.traderboard.traderboard.init.initUsers
-import com.bastronaut.traderboard.traderboard.repository.UserRepository
+import com.bastronaut.traderboard.traderboard.repositories.UserRepository
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

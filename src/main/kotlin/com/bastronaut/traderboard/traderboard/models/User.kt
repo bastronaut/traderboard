@@ -25,6 +25,7 @@ import javax.persistence.*
 @Entity
 @Table(name = "Users", uniqueConstraints = [UniqueConstraint(columnNames = ["username"])])
 class User(val username: String,
+           val email: String,
            @Id @GeneratedValue(strategy = GenerationType.AUTO)
            val id: Long = 0) {
 

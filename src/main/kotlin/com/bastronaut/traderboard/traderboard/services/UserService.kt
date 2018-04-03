@@ -3,7 +3,7 @@ package com.bastronaut.traderboard.traderboard.services
 import com.bastronaut.traderboard.traderboard.models.User
 import com.bastronaut.traderboard.traderboard.exceptions.UserNotFoundException
 import com.bastronaut.traderboard.traderboard.init.initUsers
-import com.bastronaut.traderboard.traderboard.repository.UserRepository
+import com.bastronaut.traderboard.traderboard.repositories.UserRepository
 import org.springframework.stereotype.Service
 
 @Service

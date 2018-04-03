@@ -38,19 +38,13 @@ class UserController(val userService: UserService) {
 
 
     /**
-     * The @Valid annotation does
      * The @RequestBody annotation binds the method param to the body of the web request
      */
     @PostMapping(value="")
     fun insertUser(@Valid @RequestBody registerUser: RegisterUser): User? {
-        print(registerUser)
         val username = registerUser.username
-        return if (username == null) {
-            print("wot")
-            null
-        } else {
-            userService.insertUser(username)
-        }
+        // add validator logic here
+        return userService.insertUser(username ?: "compile hax")
     }
 
 
