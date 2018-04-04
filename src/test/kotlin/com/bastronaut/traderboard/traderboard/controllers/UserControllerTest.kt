@@ -33,7 +33,7 @@ class UserControllerTest() {
 
     @Test
     fun testGetUserByUsername() {
-        given(userService.findByUserName("bas")).willReturn(User("bas"))
+        given(userService.findByUserName("bas")).willReturn(User("bas", "bas@email.com"))
 
         mockMvc.perform(MockMvcRequestBuilders.get("/users/bas"))
                 .andExpect(status().isOk())

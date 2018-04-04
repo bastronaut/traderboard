@@ -12,7 +12,7 @@ class UserService(private var userRepository: UserRepository) {
     fun findAll() = userRepository.findAll()
 
     fun insertUser(username: String) : User? {
-        val user = User(username)
+        val user = User(username, "placeholder")
         userRepository.save(user)
         return user
     }

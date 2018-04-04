@@ -18,10 +18,10 @@ fun deleteAllUsers(userRepository: UserRepository) {
 }
 
 fun insertTestUsers(userRepository: UserRepository) {
-    val a = User("bas")
-    val b = User("bob")
-    val c = User("job")
-    val d = User("ann")
+    val a = User("bas", "bas@email.com")
+    val b = User("bob", "bob@email.com")
+    val c = User("job", "job@email.com")
+    val d = User("ann", "ann@email.com")
     val users = ArrayList<User>()
     users.add(a)
     users.add(b)
