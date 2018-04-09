@@ -56,9 +56,6 @@ class UserControllerTest {
 //    }
 
     @Mock
-    lateinit var mockUserRepository: UserRepository
-
-    @Mock
     lateinit var mockUserService: UserService
 
     @InjectMocks
