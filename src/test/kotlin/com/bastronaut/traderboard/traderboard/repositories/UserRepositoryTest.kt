@@ -19,7 +19,6 @@ class UserRepositoryTest {
     @Autowired
     lateinit var userRepository: UserRepository
 
-
     @Test
     fun testFindByUsername() {
         var testuser = userRepository.findByUsername("test")

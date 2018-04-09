@@ -10,6 +10,7 @@ import org.mockito.BDDMockito.given
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
+import org.mockito.junit.MockitoJUnitRunner
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
@@ -21,50 +22,56 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPat
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 
-@RunWith(SpringRunner::class)
-@WebMvcTest(UserController::class)
-class UserControllerTest() {
-    @Autowired
-    lateinit var mockMvc: MockMvc
+//@RunWith(SpringRunner::class)
+//@WebMvcTest(UserController::class)
+@RunWith(MockitoJUnitRunner::class)
+class UserControllerTest {
+//    @Autowired
+//    lateinit var mockMvc: MockMvc
+//
+//    @MockBean
+//    lateinit var userService: UserService
+//
+//
+//    @Test
+//    fun testGetUsers() {
+//        mockMvc.perform(MockMvcRequestBuilders.get("/users"))
+//                .andExpect(status().isOk())
+//    }
 
-    @MockBean
-    lateinit var userService: UserService
+//    @Test
+//    fun testGetUserByUsername() {
+//        given(userService.findByUserName("bas")).willReturn(User("bas", "bas@email.com"))
+//
+//        mockMvc.perform(MockMvcRequestBuilders.get("/users/bas"))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("username").value("bas"))
+//    }
+//
+//    @Test
+//    fun testInsertUser() {
+//        mockMvc.perform(MockMvcRequestBuilders.post("/users/testuser"))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("username").value("testuser"))
+//    }
 
+    @Mock
+    lateinit var mockUserRepository: UserRepository
 
+    @Mock
+    lateinit var mockUserService: UserService
 
-
-    @Test
-    fun testGetUsers() {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users"))
-                .andExpect(status().isOk())
-    }
-
-    @Test
-    fun testGetUserByUsername() {
-        given(userService.findByUserName("bas")).willReturn(User("bas", "bas@email.com"))
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/bas"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("username").value("bas"))
-    }
-
-    @Test
-    fun testInsertUser() {
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/testuser"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("username").value("testuser"))
-    }
+    @InjectMocks
+    lateinit var userrController: UserController
 
     @Test
     fun testSomethingMockito() {
-        var mockUserRepository = Mockito.mock(UserRepository::class.java)
-        Mockito.`when`(mockUserRepository.findByUsername("testy")).thenReturn(User("testy", "testy@email.com", 1))
-        var userServiceMockito = UserService(mockUserRepository)
-        var userController = UserController(userServiceMockito)
-        var testUser = userController.getUserByUsername("test")
-        assertEquals(testUser?.username, "testy")
-        assertEquals(testUser?.email, "testy@email.com")
-        assertEquals(testUser?.id, 1)
+        Mockito.`when`(mockUserService.findByUserName("testy"))
+                .thenReturn(User("testy", "testy@email.com", 1))
+        var testUser = userrController.getUserByUsername("testy")
+        assertEquals("testy", testUser?.username)
+        assertEquals("testy@email.com", testUser?.email)
+        assertEquals(1L, testUser?.id)
     }
 
 
