@@ -18,4 +18,9 @@ internal class BinanceApiTest {
         binanceApi.getServerTime()
     }
 
+    @Test
+    fun ping() {
+        binanceApi.ping()
+    }
+
 }
