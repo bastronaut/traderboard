@@ -39,6 +39,7 @@ compileTestKotlin {
 
 repositories {
 	mavenCentral()
+	mavenLocal()
 }
 
 
@@ -50,5 +51,6 @@ dependencies {
 	compile("org.jetbrains.kotlin:kotlin-reflect")
 	runtime('com.h2database:h2')
 	compile("org.springframework.boot:spring-boot-devtools")
+	compile("com.binance.api:binance-api-client:1.0.0")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
