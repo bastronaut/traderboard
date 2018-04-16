@@ -38,7 +38,7 @@ class UserController(val userService: UserService) {
 
 
     /**
-     * The @RequestBody annotation binds the method param to the body of the web request
+     * The @RequestBody annotation binds the method param to the body of the POST request
      */
     @PostMapping(value="")
     fun insertUser(@Valid @RequestBody registerUser: RegisterUser): User? {

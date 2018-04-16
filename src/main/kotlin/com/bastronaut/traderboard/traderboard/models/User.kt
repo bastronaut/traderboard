@@ -10,7 +10,7 @@ import javax.persistence.*
  * @GeneratedValue defines the creation strategy - NOTE: seems that it doesnt matter what
  * we pass to the constructor as id argument, it will be stored with an auto generated ID
  *
- * Seems that, when no default values are added for arguments, it generates a hybris
+ * Seems that, when no default values are added for arguments, it generates a hibernate
  * exception? org.hibernate.InstantiationException: No default constructor for entity: ..User
  * Seems problematic when constructor parameters are more complex objects
  *
@@ -18,8 +18,12 @@ import javax.persistence.*
  * class with @Entity (and some others?) annotation. Added kotlin-noarg to buildscript
  * dependencies and apply plugins
  *
- * @param name
- * @param can be ignored randomly generated
+ * Using bcrypt for storing passwords: in implementation bcrypt stores both the
+ * password (the cipher) and the salt in the same field. Using a limiter character
+ * the password and salt are split after retrieving them
+ *
+ * @param username
+ * @param email
  */
 @JsonRootName("user")
 @Entity
@@ -27,7 +31,10 @@ import javax.persistence.*
 class User(val username: String,
            val email: String,
            @Id @GeneratedValue(strategy = GenerationType.AUTO)
-           val id: Long = 0) {
+           val id: Long = 0,
+           val password: String) {
+
+    override fun toString(): String = "User: $email, $username, $id"
 
 }
 

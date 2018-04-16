@@ -23,18 +23,6 @@ class UserService(private var userRepository: UserRepository) {
         return userRepository.findByUsername(username) ?: throw UserNotFoundException()
     }
 
-    fun testa(a: String) : List<User> {
-        return userRepository.findUserCustomQuery(a)
-    }
-
-    fun testb(a: String) : User? {
-        return userRepository.findUserCustomNamedQuery(a)
-    }
-
-    fun testc() : List<User> {
-        return userRepository.findUserCustomNativeQuery()
-    }
-
 
 }
 
