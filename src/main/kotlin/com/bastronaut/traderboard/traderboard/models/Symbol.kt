@@ -2,6 +2,6 @@ package com.bastronaut.traderboard.traderboard.models
 
 
 /**
- * Class
+ * Class to represent a trading symbol
  */
 class Symbol

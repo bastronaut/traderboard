@@ -35,7 +35,6 @@ class UserControllerTest {
     @MockBean
     lateinit var userService: UserService
 
-
     @Test
     fun testGetUsers() {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/users"))
@@ -44,7 +43,7 @@ class UserControllerTest {
 
     @Test
     fun testGetUserByUsername() {
-        given(userService.findByUserName("testuser")).willReturn(User("testuser", "test@email.com"))
+        given(userService.findByUserName("testuser")).willReturn(User("testuser", "test@email.com", 0, ""))
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/users/testuser"))
                 .andExpect(status().isOk())
@@ -60,7 +59,17 @@ class UserControllerTest {
 
     @Test
     fun testRegisterUser() {
-        val testUser: User()
+        val testUser = User("testuser", "test@email.com", 0, "password", "")
+        given(userService.insertUser("testuser")).willReturn(testUser)
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/users/register")
+                .content("user todo"))
+                .andExpect(jsonPath("username").value("testuser"))
+    }
+
+    @Test
+    fun testRegisterUserAlreadyRegistered() {
+
     }
     @Test
     fun testLogin() {

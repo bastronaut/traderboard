@@ -12,12 +12,9 @@ import javax.validation.constraints.Size
  */
 @JsonRootName("user")
 class RegisterUser {
-    @NotNull(message="Field \"username\" is required")
-    @Size(min = 1, message="Field \"username\" may not be empty")
-    var username: String? = ""
     @NotNull(message= "Field \"password\" is required")
     @Size(min = 1, message="Field \"password\" may not be empty")
-    var password: String? = ""
+    var password: String = ""
     @NotNull(message="Field \"email\" is required")
     @Size(min = 1, message="Field \"email\" may not be empty")
     var email: String? = ""

@@ -1,10 +1,13 @@
 package com.bastronaut.traderboard.traderboard.controllers
 
+import com.bastronaut.traderboard.traderboard.exceptions.InvalidException
+import com.bastronaut.traderboard.traderboard.exceptions.InvalidRequest
 import com.bastronaut.traderboard.traderboard.models.User
 import com.bastronaut.traderboard.traderboard.models.inout.RegisterUser
 import com.bastronaut.traderboard.traderboard.services.UserService
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
+import org.springframework.validation.Errors
 
 /**
  * Annotations:
@@ -41,10 +44,10 @@ class UserController(val userService: UserService) {
      * The @RequestBody annotation binds the method param to the body of the POST request
      */
     @PostMapping(value="")
-    fun insertUser(@Valid @RequestBody registerUser: RegisterUser): User? {
-        val username = registerUser.username
+    fun registerUser(@Valid @RequestBody registerUser: RegisterUser, errors: Errors): User? {
+        InvalidRequest.check(errors)
         // add validator logic here
-        return userService.insertUser(username ?: "compile hax")
+        return userService.insertUser(registerUser)
     }
 
 
