@@ -23,4 +23,9 @@ internal class BinanceApiTest {
         binanceApi.ping()
     }
 
+    @Test
+    fun testGetOrderBook() {
+        binanceApi.getOrderBook("NEOETH", 10)
+    }
+
 }

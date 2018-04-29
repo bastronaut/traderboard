@@ -44,7 +44,7 @@ class UserController(val userService: UserService) {
      * The @RequestBody annotation binds the method param to the body of the POST request
      */
     @PostMapping(value="")
-    fun registerUser(@Valid @RequestBody registerUser: RegisterUser, errors: Errors): User? {
+    fun registerUser(@Valid registerUser: RegisterUser, errors: Errors): User? {
         InvalidRequest.check(errors)
         // add validator logic here
         return userService.insertUser(registerUser)
