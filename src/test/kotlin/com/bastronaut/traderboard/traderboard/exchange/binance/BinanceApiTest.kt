@@ -25,7 +25,11 @@ internal class BinanceApiTest {
 
     @Test
     fun testGetOrderBook() {
-        binanceApi.getOrderBook("NEOETH", 10)
+        val orderBook = binanceApi.getOrderBook("NEOETH")
+        val asks = orderBook.asks
+        val bids = orderBook.bids
+
+        asks.forEach { print("Price: ${it.price}, Qty: ${it.qty}")}
     }
 
 }

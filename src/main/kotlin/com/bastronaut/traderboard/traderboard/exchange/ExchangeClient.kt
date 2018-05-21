@@ -1,5 +1,8 @@
 package com.bastronaut.traderboard.traderboard.exchange
 
+/**
+ *
+ */
 interface ExchangeClient {
 
     /**
@@ -11,7 +14,7 @@ interface ExchangeClient {
     /**
      * Market data endpoints
      */
-    fun getOrderBook(symbol: String, qty: Int)
+    fun getOrderBook(symbol: String): OrderBookWrapper
 
     /**
      *  User account calls

@@ -19,3 +19,4 @@ class TraderboardApplication {
 fun main(args: Array<String>) {
     runApplication<TraderboardApplication>(*args)
 }
+

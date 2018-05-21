@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service
 @Service
 class UserService(private var userRepository: UserRepository) {
 
+
+
     fun findAll() = userRepository.findAll()
 
     fun insertUser(register: RegisterUser) : User? {
@@ -20,15 +22,18 @@ class UserService(private var userRepository: UserRepository) {
         return user
     }
 
-    fun resetUsers() = initUsers(userRepository)
-
     fun findByUserName(username: String) : User? {
         return userRepository.findByUsername(username) ?: throw InvalidException(null)
     }
 
+
     fun createToken(email: String): String {
         return "placeholder"
     }
+
+    fun resetUsers() = initUsers(userRepository)
+
+
 }
 
 

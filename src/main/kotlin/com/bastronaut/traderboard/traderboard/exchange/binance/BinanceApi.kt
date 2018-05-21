@@ -1,17 +1,14 @@
 package com.bastronaut.traderboard.traderboard.exchange.binance
 
-import com.bastronaut.traderboard.traderboard.exchange.ExchangeClient
-import com.binance.api.client.BinanceApiAsyncRestClient
-import com.binance.api.client.BinanceApiCallback
+import com.bastronaut.traderboard.traderboard.exchange.*
 import com.binance.api.client.BinanceApiClientFactory
 import com.binance.api.client.BinanceApiRestClient
-import com.binance.api.client.domain.general.ServerTime
-import com.binance.api.client.domain.market.OrderBook
 
 
 class BinanceApi (private val apiKey: String, private val apiSecret: String) : ExchangeClient {
 
     private val client: BinanceApiRestClient
+    private val DEFAULTORDERBOOKLIMIT = 10
 
     init {
         val factory = BinanceApiClientFactory.newInstance(apiKey, apiSecret)
@@ -29,13 +26,21 @@ class BinanceApi (private val apiKey: String, private val apiSecret: String) : E
         this.client.ping()
     }
 
-    override fun getOrderBook(symbol: String, qty: Int) {
-    // TODO: decide what to do... if we want to return an OrderBook, we have to
-        // change the interface return type. this ties the interface to the
-        // binance api class and kind of defeats the purpose of the interface...
+    override fun getOrderBook(symbol: String): OrderBookWrapper {
+        val orderBook = this.client.getOrderBook(symbol, DEFAULTORDERBOOKLIMIT)
+        val asks = orderBook.asks
+        val bids = orderBook.bids
 
-//        return this.client.getOrderBook(symbol, qty)
+        val wrappedAsks = asks.map{
+            OrderBookEntryWrapperImpl(it.price, it.qty)
+        }
+        val wrappedBids = bids.map {
+            OrderBookEntryWrapperImpl(it.price, it.qty)
+        }
+        return OrderBookWrapperImpl(wrappedAsks, wrappedBids)
     }
+
+
 
 
 
