@@ -1,4 +1,4 @@
-package com.bastronaut.traderboard.traderboard.exchange
+package com.bastronaut.traderboard.exchange
 
 /**
  * Wrapper class for different exchanges' Order Book class

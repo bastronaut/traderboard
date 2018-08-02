@@ -1,10 +1,10 @@
-package com.bastronaut.traderboard.traderboard.services
+package com.bastronaut.traderboard.services
 
-import com.bastronaut.traderboard.traderboard.models.User
-import com.bastronaut.traderboard.traderboard.exceptions.InvalidException
-import com.bastronaut.traderboard.traderboard.init.initUsers
-import com.bastronaut.traderboard.traderboard.models.inout.RegisterUser
-import com.bastronaut.traderboard.traderboard.repositories.UserRepository
+import com.bastronaut.traderboard.models.User
+import com.bastronaut.traderboard.exceptions.InvalidException
+import com.bastronaut.traderboard.init.initUsers
+import com.bastronaut.traderboard.models.inout.RegisterUser
+import com.bastronaut.traderboard.repositories.UserRepository
 import org.springframework.stereotype.Service
 
 @Service

@@ -1,6 +1,9 @@
-package com.bastronaut.traderboard.traderboard.exchange.binance
+package com.bastronaut.traderboard.exchange.binance
 
-import com.bastronaut.traderboard.traderboard.exchange.*
+import com.bastronaut.traderboard.exchange.ExchangeClient
+import com.bastronaut.traderboard.exchange.OrderBookEntryWrapperImpl
+import com.bastronaut.traderboard.exchange.OrderBookWrapper
+import com.bastronaut.traderboard.exchange.OrderBookWrapperImpl
 import com.binance.api.client.BinanceApiClientFactory
 import com.binance.api.client.BinanceApiRestClient
 

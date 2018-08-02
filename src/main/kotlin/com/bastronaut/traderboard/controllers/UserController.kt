@@ -1,10 +1,9 @@
-package com.bastronaut.traderboard.traderboard.controllers
+package com.bastronaut.traderboard.controllers
 
-import com.bastronaut.traderboard.traderboard.exceptions.InvalidException
-import com.bastronaut.traderboard.traderboard.exceptions.InvalidRequest
-import com.bastronaut.traderboard.traderboard.models.User
-import com.bastronaut.traderboard.traderboard.models.inout.RegisterUser
-import com.bastronaut.traderboard.traderboard.services.UserService
+import com.bastronaut.traderboard.exceptions.InvalidRequest
+import com.bastronaut.traderboard.models.User
+import com.bastronaut.traderboard.models.inout.RegisterUser
+import com.bastronaut.traderboard.services.UserService
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 import org.springframework.validation.Errors

@@ -1,6 +1,6 @@
-package com.bastronaut.traderboard.traderboard.exchange
+package com.bastronaut.traderboard.exchange
 
-import com.bastronaut.traderboard.traderboard.exchange.binance.BinanceApi
+import com.bastronaut.traderboard.exchange.binance.BinanceApi
 
 public class ExchangeClientFactor {
 

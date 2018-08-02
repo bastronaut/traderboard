@@ -1,7 +1,7 @@
-package com.bastronaut.traderboard.traderboard.init
+package com.bastronaut.traderboard.init
 
-import com.bastronaut.traderboard.traderboard.models.User
-import com.bastronaut.traderboard.traderboard.repositories.UserRepository
+import com.bastronaut.traderboard.models.User
+import com.bastronaut.traderboard.repositories.UserRepository
 
 /**
  * File level (no class spec), automatically generates class and makes methods static.
@@ -19,7 +19,7 @@ fun deleteAllUsers(userRepository: UserRepository) {
 
 fun insertTestUsers(userRepository: UserRepository) {
     val a = User("bas@email.com", 1, "test")
-    val b = User( "bob@email.com", 1, "test")
+    val b = User("bob@email.com", 1, "test")
     val c = User("job@email.com", 1, "test")
     val d = User("ann@email.com", 1, "test")
     val users = ArrayList<User>()

@@ -1,4 +1,4 @@
-package com.bastronaut.traderboard.traderboard.models
+package com.bastronaut.traderboard.models
 
 
 /**

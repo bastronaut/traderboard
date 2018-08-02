@@ -1,4 +1,4 @@
-package com.bastronaut.traderboard.traderboard.models.inout
+package com.bastronaut.traderboard.models.inout
 
 import com.fasterxml.jackson.annotation.JsonRootName
 import javax.validation.constraints.NotNull

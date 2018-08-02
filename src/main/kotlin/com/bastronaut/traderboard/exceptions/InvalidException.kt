@@ -1,4 +1,4 @@
-package com.bastronaut.traderboard.traderboard.exceptions
+package com.bastronaut.traderboard.exceptions
 
 import org.springframework.validation.Errors
 
