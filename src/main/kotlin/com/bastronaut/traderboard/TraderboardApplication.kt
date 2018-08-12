@@ -8,10 +8,10 @@ import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 
 @SpringBootApplication
-class TraderboardApplication {
+open class TraderboardApplication {
 
     @Bean
-    fun init(userRepository: UserRepository) = CommandLineRunner {
+    open fun init(userRepository: UserRepository) = CommandLineRunner {
         initUsers(userRepository)
     }
 }

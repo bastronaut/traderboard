@@ -14,7 +14,7 @@ interface ExchangeClient {
     /**
      * Market data endpoints
      */
-    fun getOrderBook(symbol: String): OrderBookWrapper
+    fun getOrderBook(symbol: String): OrderBook
 
     /**
      *  User account calls
