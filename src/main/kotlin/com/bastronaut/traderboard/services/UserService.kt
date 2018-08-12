@@ -17,7 +17,7 @@ class UserService(private var userRepository: UserRepository) {
     fun insertUser(register: RegisterUser) : User? {
         val token = createToken(register.email!!)
         val user = User(username = register.email!!, id = 0,
-                password = register.password!!, token = token)
+                password = register.password, token = token)
         userRepository.save(user)
         return user
     }
